@@ -1,5 +1,6 @@
-example-robot-data
+example-robot-data; platform_system != "Windows"
 virtualenv
+pywinpty==2.0.14; platform_system == "Windows"
 jupyterlab
 notebook==6.0.3
 matplotlib

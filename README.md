@@ -50,6 +50,32 @@ NB: you should consider using a [virtualenv](https://docs.python.org/3/library/v
 
 Once you have the dependencies, you can start the server with `jupyter notebook`
 
+### Windows support with conda
+
+On Windows system, pinocchio and example-robot-data can only be installed using [Conda (miniconda3)](https://docs.conda.io/en/latest/). Here are the steps:
+
+- Install miniconda3 from here: https://docs.conda.io/en/latest/  
+- Configure conda:
+    - Open a terminal and go to your miniconda3 folder *miniconda3path* (usually at C:/Users/*username*/miniconda3):   
+    `cd *miniconda3path*`  
+    - Add *miniconda3path* and *miniconda3path*/Scripts to path with the command:  
+    `set PATH=%PATH%; *miniconda3path*; *miniconda3path*/Scripts`  
+    N.B.: If you do not want to do this each time you use conda in a new terminal, you can directly these tp the "Path" system environment variable:  
+    Open Windows Settings, search for "Edit the system environment variables">"Advanced">"Environment variables" and edit "Path" in the system variables  
+    - run `conda init zsh` to initialize conda for the first time  
+    - Close the terminal  
+- Create your conda environment:
+    - Open a terminal again at *miniconda3path*
+    - Create a Python *version* (for example "3.8" without quote marks; see recommended version above) environment, with name *envname* (name of your choice) by running:  
+        - `conda create -n *envname* python=*version*`
+        - `conda activate *envname*`  
+        You should now see `(*envname*)` at the head of the terminal command line  
+- Install packages  
+    - `pip install --upgrade pip`  
+    - `pip install -r requirements.txt`  
+    - `conda install pinocchio -c conda-forge`  
+    - `conda install example-robot-data -c conda-forge`  
+
 ### Using Docker
 TBD...
 
