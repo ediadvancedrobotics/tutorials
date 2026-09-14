@@ -1,7 +1,9 @@
 example-robot-data
+example-robot-data-loaders
+pin
 virtualenv
 jupyterlab
-notebook==6.0.3
+notebook
 matplotlib
 meshcat
 quadprog
