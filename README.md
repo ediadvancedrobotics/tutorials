@@ -41,6 +41,7 @@ You ll need to activate aroenv each time you'll work on the tutorials.
 - Install dependencies
 
 ```bash
+cd tutorials
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```    
