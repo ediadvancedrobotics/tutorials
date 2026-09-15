@@ -44,7 +44,14 @@ You ll need to activate aroenv each time you'll work on the tutorials.
 cd tutorials
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-```    
+```  
+
+- Workaround for a meshcast bug. Recent versions of meshcast have an issue with the display of some robot parts. You need
+to input this command to replace the ur5 robot model used in the tutorials with a modified one that will display correctly:
+
+```bash  
+cp utils/ur5_robot.urdf "$(python -c "import example_robot_data as erd; print(erd.load('ur5').urdf)")"
+```  
 
 You should be done! See [below](#using-and-updating-the-notebooks) to check that your installation is working 
 
