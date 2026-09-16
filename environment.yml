@@ -1,0 +1,10 @@
+name: aro2026
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy=1.26
+  - pybullet
+  - pip:
+      - -r requirements.txt

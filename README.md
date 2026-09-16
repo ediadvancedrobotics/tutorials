@@ -8,6 +8,17 @@ The notebooks are in Python and based on the software [Pinocchio](https://github
 
 ## Set up 
 
+Use Python 3.11. From the cloned `tutorials` directory, you can install with Conda:
+
+```bash
+conda env update -f environment.yml
+conda activate aro2026
+```
+
+This creates `aro2026` if it is missing, or updates it if it already exists, and
+installs `requirements.txt` using pip. The labs use the same environment name;
+each repository can also be installed independently. Select `aro2026` as your notebook kernel. Alternatively, follow the pip instructions below if you don't want to use Conda for the tutorials.
+
 ### On a DICE machine
 On DICE, we will clone the [tutorials repository](https://github.com/ediadvancedrobotics/tutorials) and install the required [dependencies](https://github.com/ediadvancedrobotics/tutorials/blob/main/requirements.txt) to run the tutorials. 
 You can "clone" the project to a local folder of your choice.
@@ -45,18 +56,14 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```  
 
-- Workaround for a meshcast bug. Recent versions of meshcast have an issue with the display of some robot parts. You need
-to input this command to replace the ur5 robot model used in the tutorials with a modified one that will display correctly:
-
-```bash  
-cp utils/ur5_robot.urdf "$(python -c "import example_robot_data as erd; print(erd.load('ur5').urdf)")"
-```  
+The versions pinned in `requirements.txt` avoid the Meshcat display issue; no
+URDF replacement is needed. Restart the notebook kernel after changing packages.
 
 You should be done! See [below](#using-and-updating-the-notebooks) to check that your installation is working 
 
 ### Linux, Python 3, PyPI
 
-On a Linux system with Python 3.8, you can get the dependencies directly with +[pip (see installation procedure and update below)](#installing-pip):
+On a Linux system with Python 3.11, you can get the dependencies directly with +[pip (see installation procedure and update below)](#installing-pip):
 ```bash
 python3 -m pip install -r requirements.txt
 ```
@@ -102,4 +109,3 @@ python3 -m pip install --upgrade --user
 ```
 
 In general, running +pip is likely to run an alias on +pip in /usr, so either run it through python3 as explained above, or make sure your path select the right pip executable in your ~/.local. The option --user is kind of optional for recent +pip version, but removing it should work with a warning.
-

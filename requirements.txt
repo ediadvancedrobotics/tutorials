@@ -1,10 +1,10 @@
-example-robot-data
-example-robot-data-loaders
-pin
+example-robot-data==4.4.0
+example-robot-data-loaders==4.4.0
+pin==2.7.0
 virtualenv
 jupyterlab
 notebook
 matplotlib
-meshcat
+meshcat==0.3.2
 quadprog
 scipy
