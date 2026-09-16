@@ -11,7 +11,7 @@ The notebooks are in Python and based on the software [Pinocchio](https://github
 Use Python 3.11. From the cloned `tutorials` directory, you can install with Conda:
 
 ```bash
-conda env update -f environment.yml
+conda env update --file=environment.yml
 conda activate aro2026
 ```
 
