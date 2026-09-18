@@ -6,7 +6,7 @@ A large part of these tutorials are adapted from [Nicolas Mansard's class at Sup
 The exercices are organized by notebook. Each notebook corresponds to one chapter of the class.
 The notebooks are in Python and based on the software [Pinocchio](https://github.com/stack-of-tasks/pinocchio).
 
-## Set up 
+## Set up - Python 3.11 
 
 ### On a DICE machine
 On DICE, we will clone the [tutorials repository](https://github.com/ediadvancedrobotics/tutorials) and install the required [dependencies](https://github.com/ediadvancedrobotics/tutorials/blob/main/requirements.txt) to run the tutorials. 
@@ -25,48 +25,40 @@ cd ~
 mkdir -p aro && cd aro
 ```
 
-- Clone the tutorials inside your home directory.
+- Clone the tutorials inside your home directory and enter the directory
 
 ```bash 
-git clone https://github.com/ediadvancedrobotics/tutorials/
+git clone https://github.com/ediadvancedrobotics/tutorials/ && cd tutorials
+```
+- If you have not setup conda already, type in the following commands to activate it:
+```bash
+/opt/conda/bin/conda init bash
+source ~/.bashrc
+```  
+
+- Create an ARO python environment to avoid conflicts using conda
+```bash
+conda env update --file=environment.yml
+conda activate aro2026
 ```
 
-- Create an ARO python environment to avoid conflicts (optional). 
-```bash 
-python -m venv aroenv
-source aroenv/bin/activate
-```   
-You ll need to activate aroenv each time you'll work on the tutorials.  
+You ll need to activate aro2026 each time you'll work on the tutorials.  
 
-- Install dependencies
 
-```bash
-cd tutorials
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```  
-
-- Workaround for a meshcast bug. Recent versions of meshcast have an issue with the display of some robot parts. You need
-to input this command to replace the ur5 robot model used in the tutorials with a modified one that will display correctly:
-
-```bash  
-cp utils/ur5_robot.urdf "$(python -c "import example_robot_data as erd; print(erd.load('ur5').urdf)")"
-```  
+The versions pinned in `requirements.txt` avoid a Meshcat display issue
 
 You should be done! See [below](#using-and-updating-the-notebooks) to check that your installation is working 
 
 ### Linux, Python 3, PyPI
 
-On a Linux system with Python 3.8, you can get the dependencies directly with +[pip (see installation procedure and update below)](#installing-pip):
+On a Linux system with Python 3.11, you can get the dependencies directly with +[pip (see installation procedure and update below)](#installing-pip):
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 NB: you should consider using a [virtualenv](https://docs.python.org/3/library/venv.html)
 
-Once you have the dependencies, you can start the server with `jupyter notebook`
+Once you have the dependencies, you can start the server with `jupyter notebook .`
 
-### Using Docker
-TBD...
 
 ## Using and updating the notebooks
 ### Running a notebook
@@ -103,4 +95,3 @@ python3 -m pip install --upgrade --user
 ```
 
 In general, running +pip is likely to run an alias on +pip in /usr, so either run it through python3 as explained above, or make sure your path select the right pip executable in your ~/.local. The option --user is kind of optional for recent +pip version, but removing it should work with a warning.
-
