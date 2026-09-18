@@ -6,18 +6,7 @@ A large part of these tutorials are adapted from [Nicolas Mansard's class at Sup
 The exercices are organized by notebook. Each notebook corresponds to one chapter of the class.
 The notebooks are in Python and based on the software [Pinocchio](https://github.com/stack-of-tasks/pinocchio).
 
-## Set up 
-
-Use Python 3.11. From the cloned `tutorials` directory, you can install with Conda:
-
-```bash
-conda env update --file=environment.yml
-conda activate aro2026
-```
-
-This creates `aro2026` if it is missing, or updates it if it already exists, and
-installs `requirements.txt` using pip. The labs use the same environment name;
-each repository can also be installed independently. Select `aro2026` as your notebook kernel. Alternatively, follow the pip instructions below if you don't want to use Conda for the tutorials.
+## Set up - Python 3.11 
 
 ### On a DICE machine
 On DICE, we will clone the [tutorials repository](https://github.com/ediadvancedrobotics/tutorials) and install the required [dependencies](https://github.com/ediadvancedrobotics/tutorials/blob/main/requirements.txt) to run the tutorials. 
@@ -36,28 +25,27 @@ cd ~
 mkdir -p aro && cd aro
 ```
 
-- Clone the tutorials inside your home directory.
+- Clone the tutorials inside your home directory and enter the directory
 
 ```bash 
-git clone https://github.com/ediadvancedrobotics/tutorials/
+git clone https://github.com/ediadvancedrobotics/tutorials/ && cd tutorials
 ```
-
-- Create an ARO python environment to avoid conflicts (optional). 
-```bash 
-python -m venv aroenv
-source aroenv/bin/activate
-```   
-You ll need to activate aroenv each time you'll work on the tutorials.  
-
-- Install dependencies
-
+- If you have not setup conda already, type in the following commands to activate it:
 ```bash
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+/opt/conda/bin/conda init bash
+source ~/.bashrc
 ```  
 
-The versions pinned in `requirements.txt` avoid the Meshcat display issue; no
-URDF replacement is needed. Restart the notebook kernel after changing packages.
+- Create an ARO python environment to avoid conflicts using conda
+```bash
+conda env update --file=environment.yml
+conda activate aro2026
+```
+
+You ll need to activate aro2026 each time you'll work on the tutorials.  
+
+
+The versions pinned in `requirements.txt` avoid a Meshcat display issue
 
 You should be done! See [below](#using-and-updating-the-notebooks) to check that your installation is working 
 
@@ -69,10 +57,8 @@ python3 -m pip install -r requirements.txt
 ```
 NB: you should consider using a [virtualenv](https://docs.python.org/3/library/venv.html)
 
-Once you have the dependencies, you can start the server with `jupyter notebook`
+Once you have the dependencies, you can start the server with `jupyter notebook .`
 
-### Using Docker
-TBD...
 
 ## Using and updating the notebooks
 ### Running a notebook
